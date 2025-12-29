@@ -1,0 +1,2 @@
+Python is a popular programming language used in machine learning, data science, and web development. 
+It is known for its simplicity and powerful libraries.

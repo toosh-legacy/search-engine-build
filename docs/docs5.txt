@@ -1,0 +1,2 @@
+Data science combines statistics, programming, and machine learning to extract insights from data. 
+Python is commonly used in data analysis workflows.

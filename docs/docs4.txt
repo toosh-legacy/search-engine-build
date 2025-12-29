@@ -1,0 +1,2 @@
+Search engines use data structures such as inverted indexes to efficiently retrieve relevant documents. 
+Ranking algorithms determine which results appear first.
