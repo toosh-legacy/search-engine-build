@@ -1,0 +1,2 @@
+Internet of Things (IoT) connects everyday devices to the internet.
+Smart homes and wearable technology are examples of IoT applications.

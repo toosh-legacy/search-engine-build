@@ -1,0 +1,2 @@
+Edge computing processes data closer to its source.
+This reduces latency and improves performance for real-time applications.

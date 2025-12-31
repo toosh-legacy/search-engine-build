@@ -1,0 +1,2 @@
+Blockchain is a distributed ledger technology used for secure transactions.
+It underpins cryptocurrencies like Bitcoin and Ethereum.

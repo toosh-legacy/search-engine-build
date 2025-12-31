@@ -1,0 +1,2 @@
+Augmented reality overlays digital information onto the real world.
+It is used in gaming, education, and navigation apps.

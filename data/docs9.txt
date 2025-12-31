@@ -1,0 +1,2 @@
+Cybersecurity protects systems and networks from digital attacks.
+Common practices include encryption, firewalls, and regular software updates.

@@ -1,0 +1,2 @@
+Big data refers to extremely large datasets that require advanced tools to process.
+Technologies like Hadoop and Spark are used for big data analytics.

@@ -1,0 +1,2 @@
+Cloud computing provides scalable resources over the internet.
+It allows businesses to store data and run applications remotely.

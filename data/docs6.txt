@@ -1,0 +1,2 @@
+Natural language processing enables computers to understand and generate human language.
+Applications include chatbots, translation, and sentiment analysis.

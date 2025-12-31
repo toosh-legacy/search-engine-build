@@ -1,0 +1,2 @@
+Quantum computing uses quantum bits to perform complex calculations.
+It has the potential to solve problems that are intractable for classical computers.
