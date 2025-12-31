@@ -44,9 +44,37 @@ def build_inverted_index(docs_path):
                     index[token][filename] += 1
     return index
 
+
+def query_index(index, query):
+    query = query.lower().strip()
+    if query in STOP_WORDS:
+        return []
+    if query not in index:
+        return []
+    results = index[query]
+
+    ranked = sorted(
+        results.items(), 
+        key=lambda x: x[1], 
+        reverse=True
+    )
+
+    return ranked
+    
+
 if __name__ == "__main__":
     docs_path = "data"
     index = build_inverted_index(docs_path)
 
-    for word, postings in index.items():
-        print(word, postings)
+    while True:
+        q = input("Enter search query (or 'exit' to quit): ")
+
+        if q == "exit":
+            break
+        results = query_index(index, q)
+        if not results:
+            print("No results found.")
+        else:
+            for doc, freq in results:
+                print(f"{doc} : {freq} ")
+            
