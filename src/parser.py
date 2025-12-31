@@ -61,6 +61,49 @@ def query_index(index, query):
 
     return ranked
     
+def query_tokenizer(query):
+    query = query.lower()
+    query = query.translate(str.maketrans('', '', string.punctuation))
+    tokens = [w for w in query.split() if w and w not in STOP_WORDS]
+    return tokens
+
+def multi_word_query(query, index):
+    terms = query_tokenizer(query)
+
+    if not terms:
+        return []
+    
+    if terms[0] not in index:
+        return []
+    
+
+    common_docs = index[terms[0]].copy()
+
+    for term in terms[1:]:
+        if term not in index:
+            return []
+        
+        term_docs = index[term]
+
+        common_docs = {
+            doc: common_docs[doc] + term_docs[doc]
+            for doc in common_docs
+            if doc in term_docs
+        }
+
+        if not common_docs:
+            return []
+        
+        ranked = sorted(
+        common_docs.items(),
+        key=lambda x: x[1],
+        reverse=True
+    )
+
+    return ranked
+
+
+    
 
 if __name__ == "__main__":
     docs_path = "data"
@@ -71,10 +114,10 @@ if __name__ == "__main__":
 
         if q == "exit":
             break
-        results = query_index(index, q)
+        results = multi_word_query(q, index)
         if not results:
             print("No results found.")
         else:
-            for doc, freq in results:
-                print(f"{doc} : {freq} ")
+            for doc, score in results:
+                print(f"{doc} : {score} ")
             
