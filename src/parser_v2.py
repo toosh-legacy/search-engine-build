@@ -42,6 +42,28 @@ def build_inverted_index(docs_path):
                     index[token][filename] += 1
     return index
 
+def build_positional_index(file_path):
+    index = {}
+
+    for filename in os.listdir(file_path):
+        if not filename.endswith(".txt"):
+            continue
+        
+        with open(os.path.join(file_path, filename), "r", encoding="utf-8") as f:
+            text = f.read()
+            
+            
+            tokens = tokenize(text)
+
+            for position, token in enumerate(tokens):
+                if token not in index:
+                    index[token]={}
+                
+                if filename not in index[token]:
+                    index[token][filename] = {}
+                
+                index[token][filename][position].append(position)
+    return index
 
 def query_index(index, query):
     query = query.lower().strip()
