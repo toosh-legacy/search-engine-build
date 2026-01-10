@@ -60,9 +60,9 @@ def build_positional_index(file_path):
                     index[token]={}
                 
                 if filename not in index[token]:
-                    index[token][filename] = {}
+                    index[token][filename] = []
                 
-                index[token][filename][position].append(position)
+                index[token][filename].append(position)
     return index
 
 def query_index(index, query):
@@ -147,6 +147,7 @@ def tfidf_query(index, idf, query):
     
 
 if __name__ == "__main__":
+    """
     docs_path = "data"
     index = build_inverted_index(docs_path)
     total_docs = len(os.listdir(docs_path))
@@ -165,3 +166,9 @@ if __name__ == "__main__":
         else:
             for doc, score in results:
                 print(f"{doc}: {score:.4f}")
+    """
+    
+    index = build_positional_index("data")
+
+    for term in list(index.keys())[:3]:
+        print(term, index[term])
